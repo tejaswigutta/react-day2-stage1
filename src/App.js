@@ -1,24 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
+import react from "react"
+import Quiz from "./components/Quiz.js"
 
 function App() {
+  const [isPlay,setIsPlay]=react.useState(false)
+  function clickHandle(){
+    setIsPlay(true)
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div>
+      {isPlay?<Quiz />:<div class="home"><h1 className="quizHead">QUIZ APP</h1><button onClick={clickHandle}className="playButton">PLAY</button></div>}
+      </div>
+   
   );
 }
 
